@@ -150,8 +150,31 @@
         </div>
       </div>
     </section>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!--form-->
+    <section>
+      <form class="container">
+        <div class="row mb-3">
+          <div class="col">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="firstname" placeholder="John" aria-label="First name">
+          </div>
+          <div class="col">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Doe" aria-label="Last name">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="InputEmail" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="john.doe@yahoo.com">
+        </div>
+        <div class="mb-3">
+          <label for="textarea" class="form-label">Tell us your favourite childhood story involving candies:</label>
+          <textarea class="form-control" id="textarea" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </section>
+
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
