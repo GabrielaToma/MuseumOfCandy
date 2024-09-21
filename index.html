@@ -46,12 +46,119 @@
             <a href="#ambassador_section" class="nav-link">BECOME A SWEET AMBASSADOR</a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">TICKETS</a>
+            <a id="ModalLink" class="nav-link" style="cursor: pointer;">TICKETS</a>
           </li>
         </ul>
       </div>
     </nav>
 
+    <!--Modal-->
+    <div id="ModalBackground" class="modal">
+      <div class="modal-content">
+        <div class="modal-1 pb-3"> <!--will set display: none to this div, if the "make a reservation" button is clicked-->
+          <div class="modal-title mb-3">
+            <p>Book your tickets</p>
+            <span class="closeModal">&times;</span>
+          </div>
+  
+          <div class="modal-text px-4">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Kids</h5>
+                    <p class="card-text">5$ (for the whole day)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Adults</h5>
+                    <p class="card-text">10$(for the whole day)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <form class="myform px-4 py-3">
+            <div class="row d-flex justify-content-between mb-2">
+              <label for="numberKids" class="col-4 form-label">Number of kids:</label>
+              <div>
+                <select id="numberKids" class="col-8 form-select" required>
+                  <option selected value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>              
+              </div>
+            </div>
+            <div class="row d-flex justify-content-between mb-2">
+              <label for="numberAdults" class="col-4 form-label">Number of adults:</label>
+              <div>
+                <select id="numberAdults" class="col-8 form-select" required>
+                  <option selected value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>              
+              </div>
+            </div>
+  
+            <div class="d-flex justify-content-between mb-3">
+              <label for="reservationDay">Select a date:</label>
+              <input type="date" id="reservationDay" name="reservation" required>
+            </div>
+  
+            <div class="row mb-2">
+              <label for="inputName" class="col-4 col-form-label">
+                Name:
+              </label>
+              <div class="col-8">
+                <input type="text" id="inputName" class="form-control" placeholder="Jane Doe" aria-describedby="NameForReservation" required>
+              </div>
+            </div>
+            
+            <div class="row">
+              <label for="inputEmail" class="col-4 col-form-label">Email</label>
+              <div class="col-8">
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="Email" placeholder="janedoe@gmail.com" required>
+              </div>
+            </div>
+            <div class="pt-3">
+              <p>Price to be paid at the entrance: <span class="totalPrice"></span></p>
+            </div>
+    
+            <div class="px-4">
+              <button type="submit" class="modal-reservation-button">Make Reservation</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-2"> <!--shows when "make a reservation" button is clicked, as a thank you message-->
+          <p>Thank you for choosing to visit us, <span class="reservation-name"></span>!
+            <br>We have sent you a confirmation e-mail to <span class="reservation-email"></span>. 
+            <br>We can't wait to welcome you into our world of magic! </p>
+        </div>
+      </div>
+    </div>
+        
+    <!--sections-->
     <section class="container-fluid px-0">
       <div class="row align-items-center">
         <div class="col-lg-6">
@@ -191,13 +298,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script>
-      $(function () {
-        $(document).scroll(function () {
-          var $nav = $("#mainNavbar");
-          $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
-        });
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
