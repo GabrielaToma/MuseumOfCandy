@@ -7,6 +7,8 @@ const modalLink = document.getElementById("ModalLink");
 // Get the <span> element that closes the modal
 const span = document.getElementsByClassName("closeModal")[0];
 
+//Get the paragraphs that display the error messages
+const errorParagraphs = document.querySelectorAll(".error-form");
 // When the user clicks on the button, open the modal
 /*When the user clicks on "Tickets" button, give modal 2 display none and
 modal 1 display block.*/
@@ -18,6 +20,10 @@ modalLink.addEventListener("click", function () {
   // reset the inputs back to their original state
   form.reset();
   totalPrice.textContent = "";
+  //delete the error messages
+  for (let error of errorParagraphs) {
+    error.style.display = "none";
+  }
 });
 
 // When the user clicks on <span> (x), close the modal
@@ -60,12 +66,79 @@ let inputName = document.querySelector("#inputName");
 let inputEmail = document.querySelector("#inputEmail");
 let reservationName = document.querySelector(".reservation-name");
 let reservationEmail = document.querySelector(".reservation-email");
+let reservationDay = document.querySelector("#reservationDay");
 
-reservationButton.addEventListener("click", function () {
-  modal1.style.display = "none";
-  modal2.style.display = "block";
-  reservationName.textContent = inputName.value;
-  reservationEmail.textContent = inputEmail.value;
+//Form validation
+//variables for all the paragraphs that display errors in the form
+let errorGuests = document.getElementById("error-guests");
+let errorDate = document.getElementById("error-date");
+let errorName = document.getElementById("error-name");
+let errorEmail = document.getElementById("error-email");
+
+//function for guests validation
+function numberOfGuests() {
+  if (numberKids.value != 0 || numberAdults.value != 0) {
+    return true;
+  } else {
+    errorGuests.style.display = "block";
+    return false;
+  }
+}
+//function for date validation
+function isDateValid() {
+  let inputDate = new Date(reservationDay.value);
+  if (!isNaN(inputDate)) {
+    //check if the date is in the past
+    let currentDate = new Date();
+    if (inputDate > currentDate) {
+      return true;
+    } else {
+      errorDate.style.display = "block";
+      return false;
+    }
+  } else {
+    errorDate.style.display = "block";
+    return false;
+  }
+}
+
+//function for name validation
+
+function isNameCompleted() {
+  if (inputName.value == "") {
+    errorName.style.display = "block";
+    return false;
+  } else {
+    return true;
+  }
+}
+
+//function for e-mail validation
+function isEmailValid() {
+  let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  let isValid = emailPattern.test(inputEmail.value);
+  if (isValid == true) {
+    return true;
+  } else {
+    errorEmail.style.display = "block";
+    return false;
+  }
+}
+
+reservationButton.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  if (
+    numberOfGuests() &&
+    isDateValid() &&
+    isNameCompleted() &&
+    isEmailValid()
+  ) {
+    modal1.style.display = "none";
+    modal2.style.display = "block";
+    reservationName.textContent = inputName.value;
+    reservationEmail.textContent = inputEmail.value;
+  }
 });
 
 //Turn the nav purple when scrolling

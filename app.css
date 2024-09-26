@@ -13,7 +13,7 @@ body {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 10000; /* Sit on top */
   padding-top: 40px;
   left: 0;
   top: 0;
@@ -26,6 +26,7 @@ body {
 
 /* Modal Content/Box */
 .modal-content {
+  z-index: 10001;
   position: relative;
   background-color: #fefefe;
   margin: auto;
@@ -126,6 +127,11 @@ select {
   border-radius: 3px;
 }
 
+.modal-content form p.error-form {
+  color: red;
+  display: none;
+}
+
 .modal-reservation-button {
   background-color: #f5d9d5;
   color: rgb(170, 50, 170);
@@ -159,6 +165,10 @@ select {
   margin-bottom: 100px;
 }
 
+.navbar {
+  background-color: rgb(240, 198, 216);
+}
+
 #mainNavbar {
   font-size: 1.5rem;
   font-weight: 100;
@@ -187,7 +197,7 @@ select {
 }
 
 .navbar.scrolled {
-  background: rgb(222, 192, 222);
+  background: rgb(235, 184, 223);
   transition: background 500ms;
 }
 
@@ -224,5 +234,11 @@ form button.btn:hover {
   }
   .blurb h2 {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .modal-content {
+    width: 80%;
   }
 }

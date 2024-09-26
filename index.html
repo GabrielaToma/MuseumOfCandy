@@ -63,7 +63,7 @@
   
           <div class="modal-text px-4">
             <div class="row">
-              <div class="col-sm-6">
+              <div class="col-md-6">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Kids</h5>
@@ -71,7 +71,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-md-6">
                 <div class="card">
                   <div class="card-body">
                     <h5 class="card-title">Adults</h5>
@@ -86,7 +86,7 @@
             <div class="row d-flex justify-content-between mb-2">
               <label for="numberKids" class="col-4 form-label">Number of kids:</label>
               <div>
-                <select id="numberKids" class="col-8 form-select" required>
+                <select id="numberKids" class="col-8 form-select" >
                   <option selected value="0">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -98,13 +98,13 @@
                   <option value="8">8</option>
                   <option value="9">9</option>
                   <option value="10">10</option>
-                </select>              
+                </select>             
               </div>
             </div>
             <div class="row d-flex justify-content-between mb-2">
               <label for="numberAdults" class="col-4 form-label">Number of adults:</label>
               <div>
-                <select id="numberAdults" class="col-8 form-select" required>
+                <select id="numberAdults" class="col-8 form-select" >
                   <option selected value="0">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -119,27 +119,35 @@
                 </select>              
               </div>
             </div>
-  
+            <p class="error-form" id="error-guests">Please select a number of guests.</p>
+
             <div class="d-flex justify-content-between mb-3">
               <label for="reservationDay">Select a date:</label>
-              <input type="date" id="reservationDay" name="reservation" required>
+              <input type="date" id="reservationDay" name="reservation" >
             </div>
+            <p class="error-form" id="error-date">Please select a valid date.</p>
+
   
             <div class="row mb-2">
               <label for="inputName" class="col-4 col-form-label">
                 Name:
               </label>
               <div class="col-8">
-                <input type="text" id="inputName" class="form-control" placeholder="Jane Doe" aria-describedby="NameForReservation" required>
+                <input type="text" id="inputName" class="form-control" placeholder="Jane Doe" aria-describedby="NameForReservation" >
               </div>
             </div>
+            <p class="error-form" id="error-name">Please enter a name for your reservation.</p>
+
             
             <div class="row">
               <label for="inputEmail" class="col-4 col-form-label">Email</label>
               <div class="col-8">
-                <input type="email" class="form-control" id="inputEmail" aria-describedby="Email" placeholder="janedoe@gmail.com" required>
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="Email" placeholder="janedoe@gmail.com" >
               </div>
             </div>
+            <p class="error-form" id="error-email">Please enter a valid e-mail.</p>
+
+
             <div class="pt-3">
               <p>Price to be paid at the entrance: <span class="totalPrice"></span></p>
             </div>
